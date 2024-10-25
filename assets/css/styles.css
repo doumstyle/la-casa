@@ -24,9 +24,12 @@ header {
   color: #fff;
 }
 
-.navigation p {
+.navigation > a {
   font-family: "Ephesis", cursive;
   font-size: 40px;
+  align-self: center;
+  text-decoration: none;
+  color: #fff;
 }
 
 .navigation nav {
@@ -37,7 +40,7 @@ header {
 .navigation nav ul {
   display: flex;
   justify-content: space-evenly;
-  gap: 20px;
+  gap: 3px;
 }
 
 .navigation nav ul li {
@@ -45,18 +48,38 @@ header {
 }
 
 .navigation nav ul li a {
+  background-color: rgba(255, 255, 255, 0);
+  transition: 1s ease-in-out background-color;
+  background-blend-mode: multiply;
+  border-radius: 30px;
+  padding: 10px 20px;
+}
+
+.navigation nav ul li a:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  background-blend-mode: lighten;
+  border-radius: 30px;
+  padding: 10px 20px;
+}
+
+.navigation nav ul li a {
   text-decoration: none;
   color: #fff;
 }
 
-.navigation button {
+.navigation nav ul li:last-child a {
   padding: 10px 20px;
-  background-color: transparent;
+  background-color: rgba(255, 255, 255, 0);
   border: 1px solid #fff;
+  background-blend-mode: multiply;
+  transition: 1s ease-in-out background-color;
   border-radius: 30px;
   color: #fff;
   cursor: pointer;
   margin-left: 20px;
+}
+nav ul li:last-child a:hover {
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
 header h1,
@@ -189,12 +212,19 @@ main {
 
 main button {
   padding: 10px 20px;
-  background-color: transparent;
+  background-color: rgba(255, 255, 255, 0);
+  background-blend-mode: multiply;
+  transition: 1s ease-in-out background-color;
   border: 1px solid #69a3d7;
   border-radius: 30px;
   color: #69a3d7;
   cursor: pointer;
   margin: 20px 0;
+}
+
+main button:hover {
+  background-color: rgba(136, 180, 219, 1);
+  color: #fff;
 }
 
 footer {
@@ -211,9 +241,9 @@ footer ul {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  gap: 10px;
   list-style: none;
   width: 90px;
+  height: 100%;
 }
 
 footer ul li a {
@@ -221,16 +251,21 @@ footer ul li a {
   color: #fff;
 }
 
-.info {
+.infoContainer {
   display: flex;
-  flex: 2;
+  gap: 40px;
+  flex: 3;
+}
+
+.info {
+  width: 50%;
 }
 
 .footnotes {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  flex: 7;
+  flex: 2;
 }
 
 .footnotes p {
@@ -259,4 +294,32 @@ footer ul li a {
 
 .subfooter p {
   margin: 40px 0 10px 0;
+}
+
+.mobileTitle {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .navigation {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  .desktopTitle {
+    display: none;
+  }
+
+  .mobileTitle {
+    display: block;
+  }
+
+  footer {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .infoContainer {
+    display: flex;
+  }
 }
